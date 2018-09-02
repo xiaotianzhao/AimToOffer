@@ -1,28 +1,26 @@
-#ifndef SEARCH_IN_SORTED_ARRAY_H_INCLUDED
-#define SEARCH_IN_SORTED_ARRAY_H_INCLUDED
+#ifndef FIND_H_INCLUDED
+#define FIND_H_INCLUDED
 
 #include <vector>
 
-#endif // SEARCH_IN_SORTED_ARRAY_H_INCLUDED
+#endif // FIND_H_INCLUDED
 
 using namespace std;
 
 class Solution {
 public:
     bool Find(int target, vector<vector<int> > array) {
-        int height = array.size();
-        if (height ==0){
-            return false;
-        }
-        int width = array[0].size();
-        if (width == 0){
+        if (array.size() == 0 || array[0].size() == 0){
             return false;
         }
 
-        int pos_x = 0;
-        int pos_y = width - 1;
+        int m = array.size(), n = array[0].size();
 
-        while(pos_x < height && pos_y >= 0){
+        int pos_x, pos_y;
+        pos_x = 0;
+        pos_y = n - 1;
+
+        while(pos_x < m && pos_y >= 0){
             if (target == array[pos_x][pos_y]){
                 return true;
             }else if (target < array[pos_x][pos_y]){
